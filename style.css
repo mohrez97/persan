@@ -1,0 +1,797 @@
+/* --- CSS RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-plum: #1a0f1f;      /* Deep luxury purple instead of pure black */
+    --accent-gold: #c3a375;       /* Premium muted gold */
+    --light-bg: #fdfbf7;          /* Soft ivory cream */
+    --text-dark: #2c1e33;         /* Dark plum text */
+    --text-light: #ffffff;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --transition: all 0.4s ease;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* --- COMMON LUXURY STYLES --- */
+.discover-link {
+    font-family: var(--font-sans);
+    font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 5px;
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+.discover-link.dark {
+    color: var(--text-dark);
+    border-color: rgba(44, 30, 51, 0.3);
+}
+
+.discover-link:hover {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+.discover-link .arrow {
+    font-size: 14px;
+}
+
+/* --- 1. HERO SECTION --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url('s1.png'); /* Replace with actual background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--text-light);
+    padding: 30px 50px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(26, 15, 31, 0.133), rgba(26, 15, 31, 0.088), rgba(26, 15, 31, 0.259));
+    z-index: 1;
+}
+
+/* --- LUXURY NAVBAR RE-DESIGN --- */
+/* --- Modern Minimalist Left-Aligned Navbar --- */
+.navbar {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    top:0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    left:0;right:0;
+    backdrop-filter: blur(13px);
+}
+
+/* بلوک سمت چپ: نگهدارنده لوگو و لینک‌ها */
+.nav-left-block {
+    display: flex;
+    align-items: center;
+    gap: 60px; /* فاصله هوشمند و پریمیموم بین لوگو و شروع اولین لینک */
+}
+
+/* استایل لوگو به صورت خطی در چپ */
+.nav-logo-inline {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.brand-name {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 22px; /* اندازه بهینه برای چیدمان خطی */
+    letter-spacing: 5px;
+    line-height: 1.1;
+    color: var(--text-light);
+}
+
+.brand-subtext {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.815);
+    margin-top: 2px;
+    font-weight: 500;
+}
+
+/* کانتینر لینک‌های دسکتاپ پشت سر لوگو */
+.nav-links-desktop {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* فاصله منظم و مینیمال بین لینک‌ها */
+}
+
+/* استایل ظریف و مویرگی لینک‌ها */
+.nav-links-desktop a, .lang-selector {
+    font-family: var(--font-sans);
+    font-size: 13.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-links-desktop a:hover, .nav-links-desktop a.active {
+    color: var(--text-light);
+}
+
+/* خط فعال بودن بسیار مینیمال زیر لینک فعال */
+.nav-links-desktop a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-light);
+}
+
+.lang-selector {
+    color: var(--accent-gold);
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.lang-selector i {
+    font-size: 8px;
+    margin-left: 3px;
+}
+
+/* بلوک سمت راست: دکمه اکشن قفل شده در راست */
+.nav-right-block {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* دکمه پرمیوم درخواست نمونه */
+.btn-sample-premium {
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    padding: 9px 20px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+.btn-sample-premium:hover {
+    border-color: var(--text-light) !important;
+    background-color: var(--text-light);
+    color: #1a0f1f !important; /* تغییر به رنگ بنفش عمیق برند شما در هاور */
+}
+
+/* دکمه همبرگری موبایل (در دسکتاپ پنهان است) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 12px;
+    cursor: pointer;
+    z-index: 110;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+/* --- سیستم کاملاً پاسخگو (Responsive) برای تبلت و موبایل --- */
+@media (max-width: 1100px) {
+    .nav-left-block { gap: 35px; }
+    .nav-links-desktop { gap: 20px; }
+    .brand-name { font-size: 19px; letter-spacing: 4px; }
+}
+
+@media (max-width: 950px) {
+    /* فعال شدن کلید منو و مخفی شدن لینک‌های دسکتاپ */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links-desktop {
+        display: none;
+    }
+    
+    /* در موبایل، لوگو هدر را پر می‌کند اما دکمه سمت راست سر جای خود باقی می‌ماند */
+    .nav-left-block {
+        gap: 20px;
+    }
+
+    /* لایه تمام صفحه منوی موبایل سفارشی شما */
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #1a0f1f; /* رنگ بنفش لوکس و اختصاصی شما */
+        z-index: 90;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .mobile-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-menu-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .mobile-menu-links a {
+        font-family: var(--font-sans);
+        font-size: 14px;
+        letter-spacing: 3px;
+        color: rgba(255, 255, 255, 0.65);
+        text-transform: uppercase;
+    }
+
+    .mobile-menu-links a.active, .mobile-menu-links a:hover {
+        color: var(--text-light);
+    }
+
+    .btn-sample-mobile {
+        border: 1px solid var(--accent-gold);
+        padding: 12px 25px;
+        color: var(--accent-gold) !important;
+        margin-top: 15px;
+        font-size: 11px !important;
+    }
+    
+    /* انیمیشن تبدیل همبرگری به ضربدر حین باز شدن */
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(5.5px) rotate(45deg);
+    }
+    .menu-toggle.open span:nth-child(2) {
+        transform: translateY(-5.5px) rotate(-45deg);
+    }
+}
+
+.btn-sample {
+    border: 1px solid var(--text-light);
+    padding: 10px 20px;
+    transition: var(--transition);
+}
+
+.btn-sample:hover {
+    background-color: var(--text-light);
+    color: var(--primary-plum) !important;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-left: 20px;
+}
+
+.hero-content .subtitle {
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.hero-content .main-title {
+    font-family: var(--font-serif);
+    font-size: 55px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.hero-content .product-name {
+    font-family: var(--font-serif);
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+
+.hero-content .product-sub {
+    font-family: var(--font-serif);
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 14px;
+}
+
+.video-trigger {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.play-btn {
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: var(--transition);
+}
+
+.video-trigger:hover .play-btn {
+    background-color: var(--text-light);
+    color: var(--primary-plum);
+}
+
+.video-text {
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+/* --- 2. INTRODUCTION SECTION --- */
+.intro-section {
+    padding: 120px 0;
+    background-color: var(--light-bg);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.section-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent-gold);
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.intro-text .description {
+    font-size: 14px;
+    color: rgba(44, 30, 51, 0.8);
+    margin-bottom: 20px;
+    max-width: 450px;
+}
+
+.intro-image-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.intro-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.gold-seal {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 120px;
+    height: 120px;
+    z-index: 3;
+}
+
+.seal-flower {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--accent-gold);
+    font-size: 16px;
+}
+
+/* --- 3. FOUR COLUMNS GRID --- */
+.grid-section {
+    background-color: var(--light-bg);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 550px;
+}
+
+.grid-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 30px;
+    color: var(--text-light);
+    overflow: hidden;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(26,15,31,0.1), rgba(26,15,31,0.7));
+    transition: var(--transition);
+    z-index: 1;
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+}
+
+.card-num {
+    font-size: 12px;
+    color: var(--accent-gold);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.grid-card h4 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.grid-card p {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+.card-link {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: var(--transition);
+}
+
+.grid-card:hover .card-overlay {
+    background: linear-gradient(to bottom, rgba(26,15,31,0.3), rgba(26,15,31,0.85));
+}
+
+.grid-card:hover .card-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- 4. BRAND PHILOSOPHY (PREMIUM PLUM BG) --- */
+.philosophy-section {
+    background-color: var(--primary-plum); /* Premium custom purple */
+    color: var(--text-light);
+    padding: 120px 0;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.phil-title {
+    font-family: var(--font-serif);
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.phil-desc {
+    font-size: 14px;
+    opacity: 0.8;
+    max-width: 320px;
+}
+
+.phil-center-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border: 1px solid rgba(195, 163, 117, 0.2);
+}
+
+.phil-right {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.feature-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.feature-icon {
+    margin-top: 4px;
+}
+
+.feature-text h5 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--accent-gold);
+    margin-bottom: 5px;
+}
+
+.feature-text p {
+    font-size: 13px;
+    opacity: 0.7;
+    line-height: 1.4;
+}
+
+/* --- 5. QUOTE SECTION --- */
+.quote-section {
+    padding: 140px 0;
+    background-image: linear-gradient(to bottom, rgba(253,251,247,0.8), rgba(253,251,247,0.8)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.quote-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote-mark {
+    font-family: var(--font-serif);
+    font-size: 80px;
+    color: var(--accent-gold);
+    line-height: 0;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.main-quote {
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.quote-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.quote-separator .line {
+    width: 60px;
+    height: 1px;
+    background-color: var(--accent-gold);
+    opacity: 0.5;
+}
+
+.quote-separator .deco-icon {
+    color: var(--accent-gold);
+    font-size: 14px;
+}
+
+/* --- 6. LUXURY FOOTER --- */
+.footer {
+    background-color: #f7f4ee;
+    padding: 80px 0 30px 0;
+    border-top: 1px solid rgba(44, 30, 51, 0.05);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 50px;
+    padding-bottom: 60px;
+}
+
+.footer-brand h2 {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    letter-spacing: 4px;
+    font-weight: 300;
+}
+
+.footer-brand .tagline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.footer-brand .desc {
+    font-size: 13px;
+    opacity: 0.7;
+    max-width: 260px;
+    margin-bottom: 25px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+}
+
+.social-icons a:hover {
+    color: var(--accent-gold);
+}
+
+.footer-links h4, .footer-newsletter h4 {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    font-size: 13px;
+    opacity: 0.7;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--accent-gold);
+    padding-left: 5px;
+}
+
+.footer-newsletter p {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    border-bottom: 1px solid rgba(44, 30, 51, 0.2);
+    padding-bottom: 5px;
+    margin-bottom: 35px;
+}
+
+.newsletter-form input {
+    background: none;
+    border: none;
+    outline: none;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    width: 100%;
+}
+
+.newsletter-form button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.footer-logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0.8;
+}
+
+.footer-logo-mark span {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(44, 30, 51, 0.08);
+    padding-top: 30px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.footer-bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.legal-links {
+    display: flex;
+    gap: 15px;
+}
+
+.legal-links .sep {
+    opacity: 0.3;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1024px) {
+    .navbar { grid-template-columns: 1fr; gap: 20px; text-align: center; }
+    .nav-left, .nav-right { justify-content: center; }
+    .intro-grid, .philosophy-grid { grid-template-columns: 1fr; gap: 40px; }
+    .grid-container { grid-template-columns: repeat(2, 1fr); height: auto; }
+    .grid-card { height: 400px; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .hero-content .main-title { font-size: 38px; }
+    .grid-container, .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom-flex { flex-direction: column; gap: 15px; text-align: center; }
+}
