@@ -1,11 +1,9 @@
-const navbar = document.querySelector('.navbar');
+const menuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
 
-window.addEventListener('scroll', () => {
+menuBtn.addEventListener('click', () => {
 
-  if(window.scrollY > 100){
-    navbar.style.background = 'rgba(0,0,0,0.75)';
-  }else{
-    navbar.style.background = 'rgba(0,0,0,0.15)';
-  }
+    menuBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('active');
 
 });
