@@ -69,7 +69,7 @@ a {
 .hero {
     position: relative;
     height: 100vh;
-    background-image: url('https://p.turbosquid.com/ts-thumb/Vg/JzP7MB/YA/1/jpg/1726235782/1920x1080/fit_q87/880615592c302dc513ebc641a4d669ecd8aff3d7/1.jpg'); /* Replace with actual background image */
+    background-image: url('s1.png'); /* Replace with actual background image */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -78,7 +78,7 @@ a {
     color: var(--text-light);
     padding: 30px 50px;
     background-color: #000;
-    margin-top: 100px;
+    margin-top: 120px;
 }
 
 .hero-overlay {
@@ -388,6 +388,7 @@ a {
     margin-top: auto;
     margin-bottom: auto;
     padding-left: 20px;
+
 }
 
 .hero-content .subtitle {
