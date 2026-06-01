@@ -872,3 +872,13 @@ a {
     .grid-container, .footer-grid { grid-template-columns: 1fr; }
     .footer-bottom-flex { flex-direction: column; gap: 15px; text-align: center; }
 }
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
