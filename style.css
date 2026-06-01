@@ -390,7 +390,7 @@ a {
     margin-top: auto;
     margin-bottom: auto;
     padding: 20px;
-    background-color: rgba(253, 247, 234, 0.667);
+    background-color:#d4b483c1;
     backdrop-filter: blur(7px);
     color:#000;
 
@@ -399,7 +399,7 @@ a {
 .hero-content .subtitle {
     font-size: 14px;
     letter-spacing: 4px;
-    color: var(--accent-gold);
+    color:#fffa;
     margin-bottom: 15px;
     font-weight: 800;
 }
