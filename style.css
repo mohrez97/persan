@@ -105,7 +105,7 @@ a {
     align-items:center;
 
     backdrop-filter:blur(20px);
-    background:rgba(10,10,10,.35);
+    background:rgba(0, 0, 0, 0.439);
 
     border-bottom:1px solid rgba(255,255,255,.08);
 
